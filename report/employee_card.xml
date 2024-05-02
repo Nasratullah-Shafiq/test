@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_employee_badge" inherit_id="hr.print_employee_badge">
+        <xpath expr="//div[@class='col-md-6']" position="replace">
+            <!-- Add your customized badge card template here -->
+            <div style="border-radius: 10px; border: 1px solid black; height: 640px; width: 480px">
+
+                <div class="col-3" style="margin-left: 167px; margin-top: 25px;">
+                    <img src="egp_hr/static/description/Islami_Emerate_Logo.png" height="110px" border="1" width="130px"/>
+                </div>
+                <div class="text-center">
+                    <p>Islamic Emarat of Afghanistan</p>
+                </div>
+                <div class="col-2">
+                    <img t-att-src="image_data_uri(employee.avatar_1920)"
+                         style="margin-left: 158px; height:165px; width:160px; border-radius: 100px; margin-top: 15px;"
+                         alt="Employee Image"/>
+                </div>
+                <div class="text-center">
+                    <div style="font-size:18pt; margin-bottom:0pt;margin-top:10pt;text-align: center;"
+                         align="center">
+                        <span t-out="employee.name">employee name</span>
+                    </div>
+
+                    <div align="center" style="font-size:15pt;margin-top: 50px;margin-bottom:5pt; text-align: center;">
+                        <span t-out="employee.job_id.name">Software Developer</span>
+                    </div>
+
+                    <div t-if="employee.barcode" t-field="employee.barcode"
+                         style="text-align: center; margin-top: 40px;"
+                         t-options="{'widget': 'barcode', 'width': 600, 'height': 120, 'img_style': 'max-height:50pt;max-width:100%;', 'img_align': 'center'}">
+                        <td class="text-center"> <span t-field="employee.barcode"/>  </td>
+                    </div>
+
+                </div>
+
+            </div>
+
+        <!-- This is the back side of the ID card  -->
+
+            <div style="margin-top: 450px; border-radius: 10px; border: 1px solid black; height: 640px; width: 480px">
+
+                <div class="col-3" style="margin-left: 150px; margin-top: 22px;">
+                    <img src="hr_employee/static/description/MCIT_Logo.png" height="150px" border="1" width="170px"/>
+                </div>
+                <div class="text-center">
+                    <p style="font-size: 12px; font-family: calibri;"> د مخابراتو او معلوماتی تکنالوژی وزارت <br/> MINISTRY OF COMMUNICATION AND IT</p>
+                </div>
+                <div style="background-color: rgb(71,87,172); color:white;">
+                    <div class="text-center" style="margin-top:65pt;">
+                        <t t-foreach="docs" t-as="doc">
+                            DIRECTORATE:
+                            <span t-field="doc.department_id"/>
+                        </t>
+                    </div>
+                    <div class="text-center">
+                        <div style="font-family: calibri;font-size:17px; margin-bottom:0pt;margin-top:10pt;text-align: center;"
+                             align="center">
+                            <p> از تمام موظفین محترم امنیتی خواهشمندیم تا با دارنده کارت هذا از هیچ نوع همکاری<strong>یادداشت:</strong>
+                                دریغ نورزیده در صورت لزوم به شماره 0202101182 به تماس شده حل مطلب نمایید.
+                            </p>
+                        </div>
+
+                        <div align="center"
+                             style="font-family: calibri;font-size:13pt;margin-top: 32px;margin-bottom:4pt; text-align: center;">
+                            <p>تاریخ صدور:<br/>
+                            تاریخ انقضا:</p>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 40px; padding-bottom:10px;">
+                            <p>+93(0)2101182
+                                <br/>
+                                www.mcit.gov.af
+                                <br/>
+                                Address: Mohammad jan Khan Watt, Kabul-Afghanistan
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

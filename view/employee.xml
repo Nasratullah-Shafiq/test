@@ -1,0 +1,104 @@
+
+<odoo>
+    <data>
+        <record id ="view_employee_form_inherit" model ="ir.ui.view">
+            <field name="name">hr.employee.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='mobile_phone']" position="before">
+                    <field name="father_name"/>
+                    <field name="grand_father_name"/>
+                </xpath>
+                <xpath expr="//field[@name='coach_id']" position="after">
+                    <field name="job_step"/>
+                    <field name="recruitment_date"/>
+<!--                    <field name="job_status"/>-->
+                </xpath>
+                <xpath expr="//field[@name='certificate']" position="before">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="education_location"/>
+                    <field name="university"/>
+                </xpath>
+                 <xpath expr="//field[@name='study_school']" position="after">
+                    <separator name="has_courses" string="Reward Type"/>
+                        <field name="order_no"/>
+                        <field name="date_of_sentence"/>
+                        <field name="reason_for_sentence"/>
+                        <field name="rewards_type"/>
+                </xpath>
+                <xpath expr="//field[@name='country_of_birth']" position="after">
+                    <separator name="has_courses" string="Courses"/>
+                        <field name="skill"/>
+                        <field name="major"/>
+                        <field name="remarks"/>
+                        <field name="course"/>
+                        <field name="training_type"/>
+                        <field name="training_location"/>
+                        <field name="training_start_date"/>
+                        <field name="training_end_date"/>
+                </xpath>
+
+                <xpath expr="//field[@name='work_location_id']" position="after">
+                    <separator name="has_courses" string="Work experience related to the job"/>
+                        <field name="organization"/>
+                        <field name="job_position"/>
+                        <field name="grade"/>
+                        <field name="step"/>
+                        <field name="job_location"/>
+                        <field name="department"/>
+                        <field name="status"/>
+                        <field name="job_start_date"/>
+                        <field name="job_end_date"/>
+                        <field name="duration_days"/>
+                </xpath>
+                <xpath expr="//page[@name='public']" position="after">
+                    <page name="my_public" string="publication">
+                        <div id="o_work_employee_container"
+                             class="d-lg-flex"> <!-- These two div are used to position org_chart -->
+                            <div id="o_work_employee_main" class="flex-grow-1">
+                                <group string="publications (Book, Magazine ...)">
+                                    <field name="publication_type"/>
+                                    <field name="subject"/>
+                                    <field name="publication_date"/>
+                                    <field name="no_of_pages"/>
+                                    <field name="isbn"/>
+                                </group>
+                            </div>
+                        </div>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='public']" position="before">
+                    <page name="employee_experience" string="Work Experience and Skills">
+                        <group>
+                            <group string="Work Experience">
+                                <field name="organization"/>-->
+                                <field name="job_position"/>
+                                <field name="grade"/>
+                                <field name="step"/>
+                                <field name="job_location"/>
+                                <field name="department"/>
+                                <field name="status"/>
+                                <field name="job_start_date"/>
+                                <field name="job_end_date"/>
+                                <field name="duration_days"/>
+                            </group>-->
+<!--                            <group string="مهارت ها و تریننگ">-->
+<!--                                <field name="skill"/>-->
+<!--                                <field name="major"/>-->
+<!--                                <field name="remarks"/>-->
+<!--                                <field name="course"/>-->
+<!--                                <field name="training_type"/>-->
+<!--                                <field name="training_location"/>-->
+<!--                                <field name="training_start_date"/>-->
+<!--                                <field name="training_end_date"/>-->
+<!--                            </group>-->
+                        </group>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<!-- Example: Update the hr.employee form view -->
+<!--<record id="view_employee_form" model="ir.ui.view">-->
+<!--    <field name="name">hr.employee.form</field>-->
+<!--    <field name="model">hr.employee</field>-->
+<!--    <field name="arch" type="xml">-->
+        <!-- Include the new field in the form view -->
+<!--        <field name="state"/>-->
+<!--        <field name="hiring_date"/>-->
+        <!-- ... other fields ... -->
+<!--    </field>-->
+<!--</record>-->
+
+
+<odoo>
+    <data>
+        <record id ="view_employee_form_inherit" model ="ir.ui.view">
+            <field name="name">hr.employee.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='mobile_phone']" position="after">
+                    <field name="state"/>
+                    <field name="hiring_date"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
