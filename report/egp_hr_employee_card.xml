@@ -6,7 +6,7 @@
             <!-- Add your customized badge card template here -->
             <div style="border-radius: 10px; border: 1px solid black; height: 640px; width: 480px">
 
-                <div class="col-3" style="margin-left: 167px; margin-top: 25px;">
+                <div class="col-3" style="margin-left: 167px; margin-right: 167px; margin-top: 25px;">
                     <img src="egp_hr/static/description/Islami_Emerate_Logo.png" height="110px" border="1" width="130px"/>
                 </div>
                 <div class="text-center">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-2">
                     <img t-att-src="image_data_uri(employee.avatar_1920)"
-                         style="margin-left: 158px; height:165px; width:160px; border-radius: 100px; margin-top: 15px;"
+                         style="margin-left: 158px; margin-right: 158px; height:165px; width:160px; border-radius: 100px; margin-top: 15px;"
                          alt="Employee Image"/>
                 </div>
                 <div class="text-center">
@@ -41,8 +41,8 @@
 
             <div style="margin-top: 450px; border-radius: 10px; border: 1px solid black; height: 640px; width: 480px">
 
-                <div class="col-3" style="margin-left: 150px; margin-top: 22px;">
-                    <img src="hr_employee/static/description/MCIT_Logo.png" height="150px" border="1" width="170px"/>
+                <div class="col-3" style="margin-left: 150px; margin-right: 150px; margin-top: 22px;">
+                    <img src="egp_hr/static/description/MCIT_Logo.png" height="150px" border="1" width="170px"/>
                 </div>
                 <div class="text-center">
                     <p style="font-size: 12px; font-family: calibri;"> د مخابراتو او معلوماتی تکنالوژی وزارت <br/> MINISTRY OF COMMUNICATION AND IT</p>
@@ -57,8 +57,8 @@
                     <div class="text-center">
                         <div style="font-family: calibri;font-size:17px; margin-bottom:0pt;margin-top:10pt;text-align: center;"
                              align="center">
-                            <p> از تمام موظفین محترم امنیتی خواهشمندیم تا با دارنده کارت هذا از هیچ نوع همکاری<strong>یادداشت:</strong>
-                                دریغ نورزیده در صورت لزوم به شماره 0202101182 به تماس شده حل مطلب نمایید.
+                            <p>
+                                یادداشت: از تمام موظفین محترم امنیتی خواهشمندیم تا با دارنده کارت هذا از هیچ نوع همکاری دریغ نورزیده در صورت لزوم به شماره 0202101182 به تماس شده حل مطلب نمایید.
                             </p>
                         </div>
 

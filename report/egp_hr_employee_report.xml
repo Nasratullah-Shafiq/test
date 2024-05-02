@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_employee_position_report" model="ir.actions.report">
+        <field name="name">Employee Report</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">egp_hr.print_employee_id</field>
+        <field name="report_file">egp_hr.print_employee_id</field>
+        <field name="print_report_name">'Badge - %s' % (object.name).replace('/', '')</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="print_employee_id">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <div class="row">
+                        <div class="col-6 text-center" style="font-family:Calibri;">
+                            <p>امارت اسلامی افغانستان</p>
+                            <p>وزارت مخابرات و تکنالوژی معلوماتی</p>
+                        </div>
+                        <div class="col-6 text-center" style="font-family:Calibri;">
+                            <p>د افغانستان اسلامی امارت</p>
+                            <p>د مخابراتو او تکنالوژی وزارت</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-3">
+                        <img src="egp_hr/static/description/MCIT_logo.png"
+                             height="130" border="1" width="150"/> </div>
+                    <div class="col-6 text-center" style="font-family:Calibri;">
+                        <p> Islamic Emarat of Afghanistan </p>
+                        <p> Ministry of Communication and IT </p>
+                        <p> د بشری سرچینو ریاست </p>
+                        <p> د سوانح آمریت </p>
+                    </div>
+                    <div class="col-3"> <img src="egp_hr/static/description/Emerate_logo.png"
+                                         height="100" border="1" width="100"/> </div>
+                </div>
+                     <div class="row" style="font-family:Calibri;">
+                         <div class="col-12"> <p> No</p> </div>
+                         <div class="col-12"> <p> Date </p></div>
+                         <div class="col-1"> <img t-att-src="image_data_uri(doc.avatar_1920)" style="max-height:85pt;max-width:90%" alt="Employee Image"/> </div>
+                    </div>
+                    <div class = "col-12" style="font-family:Calibri; padding-bottom: 15px;">
+                        Civil service employee accident report form to complete the records for the purpose of appointment in new duties, conversion, dismissal and re-appointment
+                    </div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <th> Name </th>
+                            <th> Father Name </th>
+                            <th> Grand Father Name </th>
+                            <th> Date of Birth </th>
+                            <th> Place of Birth </th>
+                            <th> ID Card No </th>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.name"/> </td>
+                            <td class="text-center"> <span t-field="doc.father_name"/>  </td>
+                            <td class="text-center"> <span t-field="doc.grand_father_name"/>  </td>
+                            <td class="text-center"> <span t-field="doc.birthday"/> </td>
+                            <td class="text-center"> <span t-field="doc.place_of_birth"/> </td>
+                            <td class="text-center"> <span t-field="doc.identification_id"/>  </td>
+
+                        </tr>
+                    </table>
+                    <div style="padding-bottom: 15px;"> Information about education and higher education </div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Field of Study </td>
+                            <td> Degree </td>
+                            <td> University </td>
+                            <td> Education Place </td>
+                            <td> Graduation Date </td>
+                            <td> Start Date </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.start_date"/> </td>
+                            <td class="text-center"> <span t-field="doc.end_date"/> </td>
+                            <td class="text-center"> <span t-field="doc.education_location"/> </td>
+                            <td class="text-center"> <span t-field="doc.university"/> </td>
+                            <td class="text-center"> <span t-field="doc.certificate"/> </td>
+                            <td class="text-center"> <span t-field="doc.study_field"/> </td>
+                        </tr>
+                    </table>
+                     <div style="font-family:Calibri; padding-top: 5px; padding-bottom: 15px;"> Address and Contacts </div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Address </td>
+                            <td> Email </td>
+                            <td> Phone No </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.private_street"/> </td>
+                            <td class="text-center"> <span t-field="doc.work_email"/> </td>
+                            <td class="text-center"> <span t-field="doc.work_phone"/> </td>
+                        </tr>
+                    </table>
+                    <div style="font-family:Calibri; padding-bottom: 15px;"> Work Experiences related to the job </div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Organization </td>
+                            <td> Job Position </td>
+                            <td> Grade </td>
+                            <td> Step </td>
+                            <td> Job Location </td>
+                            <td> Department </td>
+                            <td> Status </td>
+                            <td> Start Date </td>
+                            <td> End Date </td>
+                            <td> Duration </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.organization"/> </td>
+                            <td class="text-center"> <span t-field="doc.job_position"/> </td>
+                            <td class="text-center"> <span t-field="doc.grade"/> </td>
+                            <td class="text-center"> <span t-field="doc.step"/> </td>
+                            <td class="text-center"> <span t-field="doc.job_location"/> </td>
+                            <td class="text-center"> <span t-field="doc.department"/> </td>
+                            <td class="text-center"> <span t-field="doc.status"/> </td>
+                            <td class="text-center"> <span t-field="doc.job_start_date"/> </td>
+                            <td class="text-center"> <span t-field="doc.job_end_date"/> </td>
+                            <td class="text-center"> <span t-field="doc.duration_days"/> </td>
+                        </tr>
+                    </table>
+                    <div style="font-family:Calibri; padding-bottom: 15px;"> Performance evaluation information </div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Evaluation Date </td>
+                            <td> Evaluation Type (Annual) </td>
+                            <td> Evaluation Date </td>
+                            <td> Evaluation Score </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.identification_id"/></td>
+                            <td class="text-center"> <span t-field="doc.identification_id"/> </td>
+                            <td class="text-center"> <span t-field="doc.identification_id"/> </td>
+                            <td class="text-center"> <span t-field="doc.identification_id"/> </td>
+                        </tr>
+                    </table>
+
+                    <div style="font-family:Calibri; padding-bottom: 15px;"> Rewards and Punishment </div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Reward Type </td>
+                            <td> Reason </td>
+                            <td> Date of Issue </td>
+                            <td> No of Sentence</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.rewards_type"/> </td>
+                            <td class="text-center"> <span t-field="doc.reason_for_sentence"/> </td>
+                            <td class="text-center"> <span t-field="doc.date_of_sentence"/> </td>
+                            <td class="text-center"> <span t-field="doc.order_no"/> </td>
+                        </tr>
+                    </table>
+
+                    <div style="font-family:Calibri; padding-bottom: 15px;"> Skills and Certification </div>
+                    <table class="table table-condensed" style="font-family:Calibri; text-align:right;">
+                        <tr>
+                            <td> Skill Type </td>
+                            <td> Major </td>
+                            <td> Certification </td>
+                            <td> Remarks </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.identification_id"/> </td>
+                            <td class="text-center"> <span t-field="doc.course"/> </td>
+                            <td class="text-center"> <span t-field="doc.major"/> </td>
+                            <td class="text-center"> <span t-field="doc.skill"/> </td>
+                        </tr>
+                    </table>
+                    <div style="font-family:Calibri; padding-bottom: 15px;"> Training courses </div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Course </td>
+                            <td> Training Type</td>
+                            <td> Training Location</td>
+                            <td> Start Date </td>
+                            <td> End Date </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.course"/> </td>
+                            <td class="text-center"> <span t-field="doc.training_type"/> </td>
+                            <td class="text-center"> <span t-field="doc.training_location"/> </td>
+                            <td class="text-center"> <span t-field="doc.training_end_date"/> </td>
+                            <td class="text-center"> <span t-field="doc.training_start_date"/> </td>
+                        </tr>
+                    </table>
+                    <div style="font-family:Calibri; padding-bottom: 15px;"> Language Skills</div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Language </td>
+                            <td> Reading </td>
+                            <td> Speaking </td>
+                            <td> Listening </td>
+                            <td> Writing </td>
+                        </tr>
+                        <tr>
+<!--                            <td class="text-center"> <span t-field="doc.writing"/> </td>-->
+<!--                            <td class="text-center"> <span t-field="doc.listening"/> </td>-->
+<!--                            <td class="text-center"> <span t-field="doc.speaking"/> </td>-->
+<!--                            <td class="text-center"> <span t-field="doc.reading"/> </td>-->
+<!--                            <td class="text-center"> <span t-field="doc.identification_id"/> </td>-->
+                        </tr>
+                    </table>
+                     <div style="font-family:Calibri; padding-bottom: 15px;"> Publication (Book, Magazine ... )</div>
+                    <table class="table table-condensed" style="font-family:Calibri;">
+                        <tr>
+                            <td> Publication Type</td>
+                            <td> Subject </td>
+                            <td> Publish Date</td>
+                            <td> No of Pages </td>
+                            <td> ISBN </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> <span t-field="doc.publication_type"/> </td>
+                            <td class="text-center"> <span t-field="doc.subject"/> </td>
+                            <td class="text-center"> <span t-field="doc.publication_date"/> </td>
+                            <td class="text-center"> <span t-field="doc.no_of_pages"/> </td>
+                            <td class="text-center"> <span t-field="doc.isbn"/> </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

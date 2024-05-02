@@ -1,0 +1,391 @@
+
+<odoo>
+    <data>
+        <record id ="view_employee_form_inherit" model ="ir.ui.view">
+            <field name="name">hr.employee.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='mobile_phone']" position="before">
+                    <field name="father_name"/>
+                    <field name="grand_father_name"/>
+                </xpath>
+                <xpath expr="//field[@name='coach_id']" position="after">
+                    <field name="job_step"/>
+                    <field name="recruitment_date"/>
+                </xpath>
+                <xpath expr="//field[@name='certificate']" position="before">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="education_location"/>
+                    <field name="university"/>
+                </xpath>
+                <xpath expr="//page[@name='public']" position="before">
+                    <page name="employee_experience" string="Employee Resume">
+                        <group string="Employee's Work Experience and Education"> </group>
+                        <notebook>
+                            <page name="employee_education" string="Education">
+                                <field name="education_ids">
+                                    <tree>
+                                        <field name="country"/>
+                                        <field name="degree_id"/>
+                                        <field name="faculty"/>
+                                        <field name="major"/>
+                                        <field name="education_start_date"/>
+                                        <field name="education_end_date"/>
+                                        <field name="batch_no"/>
+                                        <field name="education_remarks"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="country"/>
+                                                <field name="degree_id"/>
+                                                <field name="faculty"/>
+                                                <field name="major"/>
+                                            </group>
+                                            <group>
+                                                <field name="education_start_date"/>
+                                                <field name="education_end_date"/>
+                                                <field name="batch_no"/>
+                                                <field name="education_remarks"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="employee_experience" string="Work Experience">
+                                <field name="experience_ids">
+                                    <tree>
+                                        <field name="country"/>
+                                        <field name="province"/>
+                                        <field name="organization_id"/>
+                                        <field name="job_position"/>
+                                        <field name="grade"/>
+                                        <field name="step_id"/>
+                                        <field name="department"/>
+                                        <field name="status_id"/>
+                                        <field name="job_start_date"/>
+                                        <field name="job_end_date"/>
+                                        <field name="organization_type"/>
+                                        <field name="duration_days"/>
+                                        <field name="job_remarks"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="country"/>
+                                                <field name="province"/>
+                                                <field name="organization_id"/>
+                                                <field name="job_position"/>
+                                                <field name="grade"/>
+                                                <field name="step_id"/>
+                                                <field name="department"/>
+                                            </group>
+                                            <group>
+                                                <field name="status_id"/>
+                                                <field name="job_start_date"/>
+                                                <field name="job_end_date"/>
+                                                <field name="organization_type"/>
+                                                <field name="duration_days"/>
+                                                <field name="job_remarks"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="employee_training" string="Training">
+                                <field name="training_ids">
+                                    <tree>
+                                        <field name="course_id"/>
+                                        <field name="training_type"/>
+                                        <field name="training_location"/>
+                                        <field name="training_start_date"/>
+                                        <field name="training_end_date"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="course_id"/>
+                                            <field name="training_type"/>
+                                            <field name="training_location"/>
+                                            <field name="training_start_date"/>
+                                            <field name="training_end_date"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="my_public" string="Publication">
+                                <div id="o_work_employee_container"
+                                     class="d-lg-flex"> <!-- These two div are used to position org_chart -->
+                                    <div id="o_work_employee_main" class="flex-grow-1">
+                                        <field name="publication_ids">
+                                            <tree>
+                                                <field name="publication_type"/>
+                                                <field name="subject"/>
+                                                <field name="publication_date"/>
+                                                <field name="no_of_pages"/>
+                                                <field name="isbn"/>
+                                            </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="publication_type"/>
+                                                    <field name="subject"/>
+                                                    <field name="publication_date"/>
+                                                    <field name="no_of_pages"/>
+                                                    <field name="isbn"/>
+                                                </group>
+                                            </form>
+                                        </field>
+                                    </div>
+                                </div>
+                            </page>
+                            <page name="employee_language" string="Language">
+                                <field name="language_ids">
+                                    <tree>
+                                        <field name="language"/>
+                                        <field name="reading"/>
+                                        <field name="speaking"/>
+                                        <field name="listening"/>
+                                        <field name="writing"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="language"/>
+                                            <field name="reading"/>
+                                            <field name="speaking"/>
+                                            <field name="listening"/>
+                                            <field name="writing"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="employee_language" string="Exams">
+                                <field name="exam_ids">
+                                    <tree>
+                                        <field name="exam_type"/>
+                                        <field name="exam_date"/>
+                                        <field name="exam_remarks"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="exam_type"/>
+                                            <field name="exam_date"/>
+                                            <field name="exam_remarks"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="employee_appraisal" string="Appraisal">
+                                <field name="appraisal_ids">
+                                    <tree>
+                                        <field name="appraisal_type"/>
+                                        <field name="total_marks"/>
+                                        <field name="head_details"/>
+                                        <field name="sending_date"/>
+                                        <field name="basic_objective_of_work_plan"/>
+                                        <field name="head_opinion"/>
+                                        <field name="superior_head_opinion"/>
+                                        <field name="appraisal_date"/>
+                                        <field name="is_action_plan_accommodated"/>
+                                        <field name="final_result"/>
+                                        <field name="employee_opinion"/>
+                                        <field name="is_agree_with_the_result"/>
+                                        <field name="admin_opinion"/>
+                                        <field name="employee_opinion_again"/>
+                                        <field name="supervisor_opinion"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="appraisal_type"/>
+                                                <field name="total_marks"/>
+                                                <field name="head_details"/>
+                                                <field name="sending_date"/>
+                                                <field name="basic_objective_of_work_plan"/>
+                                                <field name="head_opinion"/>
+                                                <field name="superior_head_opinion"/>
+                                                <field name="appraisal_date"/>
+                                            </group>
+                                            <group>
+                                                <field name="is_action_plan_accommodated"/>
+                                                <field name="final_result"/>
+                                                <field name="employee_opinion"/>
+                                                <field name="is_agree_with_the_result"/>
+                                                <field name="admin_opinion"/>
+                                                <field name="employee_opinion_again"/>
+                                                <field name="supervisor_opinion"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[@name='personal_information']" position="replace">
+                    <page name="personal_information" string="Private Information" groups="egp_hr.group_employee_officers, egp_hr.group_recruitment_viewer">
+                        <group>
+                            <group string="Permanent Address">
+                                <field name="permanent_province" placeholder="Permanent Province"/>
+                                <field name="permanent_district" placeholder="Permanent District"/>
+                                <field name="permanent_village" placeholder="Permanent Village"/>
+                                <field name="home_number" placeholder="Home Number"/>
+                                <field name="permanent_street" placeholder="Street..."/>
+
+                                <separator name="has_work_permit" string="Contemporary Address"/>
+                                <field name="temporary_province" placeholder="Temporary Province"/>
+                                <field name="temporary_district" placeholder="Temporary District"/>
+                                <field name="temporary_village" placeholder="Temporary Village"/>
+                                <field name="home_number" placeholder="Home Number"/>
+                                <field name="private_streets" placeholder="Street..."/>
+                                <field name="private_email" string="Email"/>
+                                <field name="private_phone" string="Phone"/>
+                                <field name="bank_account_id" context="{'default_partner_id': work_contact_id}"
+                                       options="{'no_quick_create': True}" readonly="not id"/>
+                            </group>
+                            <group string="Passport">
+                                <field name="passport_id"/>
+                                <field name="passport_print_date"/>
+                                <field name="passport_end_date"/>
+                                <separator name="has_work_permit" string="Work Permit"/>
+                                <field name="permit_no"/>
+                                <separator name="has_work_permit" string="Identification"/>
+                                <field name="identification_type"/>
+                                <field name="identification_id"/>
+                                <field name="identification_print_date" invisible="identification_type != 'electronic_id_card'"/>
+                                <field name="identification_expiry_date" invisible="identification_type != 'electronic_id_card'"/>
+                                <field name="identification_chapter" invisible="identification_type != 'paper_id_card'"/>
+                                <field name="identification_page_no" invisible="identification_type != 'paper_id_card'"/>
+                            </group>
+                            <group string="Family Status">
+                                <field name="marital"/>
+                                <field name="spouse_complete_name"
+                                       invisible="marital not in ['married', 'cohabitant']"/>
+                                <field name="spouse_birthdate" invisible="marital not in ['married', 'cohabitant']"/>
+                                <field name="children"/>
+                            </group>
+
+                            <group string="Emergency" name="emergency">
+                                <field name="emergency_contact"/>
+                                <field name="emergency_phone" class="o_force_ltr"/>
+                            </group>
+                            <group string="Addresses And Contacts" name="emergency">
+                                <field name="emergency_contact"/>
+                                <field name="emergency_phone" class="o_force_ltr"/>
+                            </group>
+                            <group string="Citizenship">
+                                <field name="country_id"
+                                       options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                                <field name="identification_id"/>
+                                <field name="ssnid"/>
+
+                                <field name="gender"/>
+                                <field name="birthday"/>
+                                <field name="place_of_birth"/>
+                                <field name="country_of_birth"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='public']" position="before">
+                    <page name="personal_information" string="Property &amp; Travel" groups="base.group_user">
+                        <notebook>
+                            <page name="employee_property" string="Property">
+                                <field name="property_ids">
+                                    <tree>
+                                        <field name="property_type"/>
+                                        <field name="price"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="property_type"/>
+                                            <field name="price"/>
+                                            <field name="remarks"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="employee_travel" string="Travel">
+                                <field name="travel_ids">
+                                    <tree>
+                                        <field name="country"/>
+                                        <field name="travel_start_date"/>
+                                        <field name="travel_end_date"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="country"/>
+                                            <field name="travel_start_date"/>
+                                            <field name="travel_end_date"/>
+                                            <field name="remarks"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='public']" position="before">
+                    <page name="personal_information" string="Reward &amp; Punishments" groups="hr.group_hr_user">
+                        <notebook>
+                            <page name="employee_reward" string="Reward">
+                                <field name="reward_ids">
+                                    <tree>
+                                        <field name="reward_type"/>
+                                        <field name="amount_of_cash_for_reward"/>
+                                        <field name="order_no"/>
+                                        <field name="order_date"/>
+                                        <field name="organization_id"/>
+                                        <field name="reason"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="reward_type"/>
+                                            <field name="amount_of_cash_for_reward"/>
+                                            <field name="order_no"/>
+                                            <field name="order_date"/>
+                                            <field name="organization_id"/>
+                                            <field name="reason"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page name="employee_punishment" string="Punishment">
+                                <field name="punishment_ids">
+                                    <tree>
+                                        <field name="punishment_type"/>
+                                        <field name="violation_type"/>
+                                        <field name="order"/>
+                                        <field name="punishment_start_date"/>
+                                        <field name="punishment_end_date"/>
+                                        <field name="punishment_date"/>
+<!--                                        <field name="invalid"/>-->
+                                        <field name="punishment_remarks"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="punishment_type"/>
+                                            <field name="violation_type"/>
+                                            <field name="order"/>
+                                            <field name="punishment_start_date"/>
+                                            <field name="punishment_end_date"/>
+                                            <field name="punishment_date"/>
+
+<!--                                            <field name="invalid" widget="checkbox"/>-->
+                                            <field name="punishment_remarks"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

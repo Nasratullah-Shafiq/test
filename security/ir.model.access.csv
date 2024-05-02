@@ -1,5 +1,29 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
+access_hr_experience_group,employee.experience,model_employee_experience,egp_hr.group_employee_officers,1,1,1,1
+access_hr_publication_group,employee.publication,model_employee_publication,egp_hr.group_employee_officers,1,1,1,1
+access_hr_reward_group,employee.reward,model_employee_reward,egp_hr.group_employee_officers,1,1,1,1
+access_hr_travel_group,employee.travel,model_employee_travel,egp_hr.group_employee_officers,1,1,1,1
+
+access_hr_employee_users,hr.employee users,model_hr_employee,egp_hr.group_employee_officers,1,1,0,1
+
+access_hr_property_group,employee.property,model_employee_property,egp_hr.group_employee_officers,1,1,1,1
+access_hr_health_group,employee.health,model_employee_health,egp_hr.group_employee_officers,1,1,1,1
+access_hr_education_group,employee.education,model_employee_education,egp_hr.group_employee_officers,1,1,1,1
+access_hr_status_group,employee.status,model_employee_status,egp_hr.group_employee_officers,1,1,1,1
+access_hr_relatives_group,employee.relatives,model_employee_relatives,egp_hr.group_employee_officers,1,1,1,1
+access_hr_district_group,employee.district,model_employee_district,egp_hr.group_employee_officers,1,1,1,1
+access_hr_language_group,employee.language,model_employee_language,egp_hr.group_employee_officers,1,1,1,1
+access_hr_exam_group,employee.exam,model_employee_exam,egp_hr.group_employee_officers,1,1,1,1
+access_hr_training_group,employee.training,model_employee_training,egp_hr.group_employee_officers,1,1,1,1
+access_hr_course_group,employee.course,model_employee_course,egp_hr.group_employee_officers,1,1,1,1
+access_hr_punishment_group,employee.punishment,model_employee_punishment,egp_hr.group_employee_officers,1,1,1,1
+access_hr_reward_group,employee.reward,model_employee_reward,egp_hr.group_employee_officers,1,1,1,1
+access_hr_organization_group,employee.organization,model_employee_organization,egp_hr.group_employee_officers,1,1,1,1
+access_hr_appraisal_group,employee.appraisal,model_employee_appraisal,egp_hr.group_employee_officers,1,1,1,1
+access_hr_degree_group,employee.degree,model_employee_degree,egp_hr.group_employee_officers,1,1,1,1
+access_hr_step_group,employee.step,model_employee_step,egp_hr.group_employee_officers,1,1,1,1
+
 access_hr_department_group_s,hr.department,hr.model_hr_department,group_recruitment_viewer,1,1,0,1
 access_hr_employee_group_s,hr.employee,hr.model_hr_employee,group_recruitment_viewer,1,1,0,1
 access_hr_job_group_s,hr.job,hr_recruitment.model_hr_job,group_recruitment_viewer,1,1,0,1
@@ -10,10 +34,8 @@ access_hr_applicant_refuse_reason_group_s,hr.applicant.refuse.reason,hr_recruitm
 
 access_hr_employee_category_user_s,hr.employee.category.user.s,hr.model_hr_employee_category,egp_hr.group_employee_officers,1,1,1,1
 
-access_hr_employee_system_user_s,hr.employee system user.s,hr_skills.model_hr_employee_public,egp_hr.group_employee_officers,1,1,1,1
-access_hr_employee_public_user_s,hr.employee_public.s,hr.model_hr_employee_public,egp_hr.group_employee_officers,1,1,1,1
 access_hr_employee_resource_user_s,resource.resource.user.s,resource.model_resource_resource,egp_hr.group_employee_officers,1,1,1,1
-access_hr_department_user_s,hr.department.user.s,hr.model_hr_department,egp_hr.group_employee_officers,1,1,1,1
+access_hr_department_user_s,hr.department.user.s,hr.model_hr_department,egp_hr.group_employee_officers,1,1,0,1
 access_hr_job_user_s,hr.job user.s,hr.model_hr_job,egp_hr.group_employee_officers,1,1,1,1
 access_hr_departure_reason_s,access_hr_departure_reason_user.s,hr.model_hr_departure_reason,egp_hr.group_employee_officers,1,1,1,1
 access_hr_contract_type_manager_s,hr.contract.type.manager.s,hr.model_hr_contract_type,egp_hr.group_employee_officers,1,1,1,1
@@ -32,5 +54,3 @@ access_hr_employee_skill,hr_skills.hr.employee.skill,hr_skills.model_hr_employee
 
 access_hr_employee_skill_report,hr_skills.hr.employee.skill.report,hr_skills.model_hr_employee_skill_report,egp_hr.group_employee_officers,1,0,0,0
 access_hr_employee_skill_log,hr_skills.hr.employee.skill.log,hr_skills.model_hr_employee_skill_log,egp_hr.group_employee_officers,1,1,1,0
-
-
